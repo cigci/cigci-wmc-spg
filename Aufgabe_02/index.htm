@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cigci - PlantStore</title>
+    <link rel="stylesheet" href="./styles/root.css">
+    <link rel="stylesheet" href="./styles/global.css">
+    <link rel="stylesheet" href="./styles/typograhpy.css">
+    <link rel="stylesheet" href="./styles/input.css">
+    <link rel="stylesheet" href="./styles/grid.css">
+    <link rel="stylesheet" href="./styles/carousel.css">
+    <link rel="stylesheet" href="./styles/contact-form.css">
+    <link rel="stylesheet" href="./styles/table.css">
+    <link rel="stylesheet" href="./styles/elegant.css">
+    <link rel="stylesheet" href="./styles/modern.css">
+</head>
+
+<body>
+    <div class="decor-layer" aria-hidden="true">
+        <div class="rect r1" data-rot="-12"></div>
+        <div class="rect r2" data-rot="8"></div>
+        <div class="rect r3" data-rot="-6"></div>
+        <div class="rect r4" data-rot="10"></div>
+        <div class="rect r5" data-rot="-4"></div>
+        <div class="rect r6" data-rot="14"></div>
+    </div>
+    <header class="bg w-100">
+        <nav class="container py-2 flex justify-between items-center">
+            <h1>PlantStore</h1>
+
+            <div style="width: 600px;">
+                <div class="input-container">
+                    <input type="search" class="input-field" placeholder="Search..." aria-label="Suche">
+                    <button type="button" class="input-icon" aria-label="Suche">
+
+                        <img src="./svg/search_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24-2.svg" alt="">
+
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-flow-col">
+                <img class="cursor-pointer" src="./svg/account_circle_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg"
+                    alt="">
+                <img class="cursor-pointer" src="./svg/favorite_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                <img class="cursor-pointer" src="./svg/shopping_cart_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <br>
+        <div class="carousel" tabindex="0">
+            <div class="carousel-track">
+                <div class="carousel-item">
+                    <img src="./imgs/pexels-mdsnmdsnmdsn-1382393.jpg" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="./imgs/pexels-nietjuhart-1906439.jpg" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="./imgs/pexels-nietjuhart-776656.jpg" alt="">
+                </div>
+                <div class="carousel-item">
+                    <img src="./imgs/pexels-scottwebb-213727.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <br>
+        <section class="py-2">
+            <h2>Our Plants</h2>
+            <p>
+                Here is a selection of our most popular plants. Whether you are a beginner
+                or an experienced plant lover, you will find the right one for your home.
+            </p>
+            <div class="products-grid">
+                <article class="product-card">
+                    <div class="product-media"><img src="./imgs/pexels-ani-ani-326723328-14305781.jpg" alt="Monstera">
+                    </div>
+                    <div class="product-body">
+                        <h3 class="product-title">Monstera Deliciosa</h3>
+                        <div class="product-meta"><span class="muted">South America</span><span
+                                class="product-price">€25</span></div>
+                        <div class="product-actions"><button class="btn-buy">Buy</button><button
+                                class="btn-details">Details</button></div>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-media"><img src="./imgs/pexels-cisiq-1840270.jpg" alt="Aloe Vera"></div>
+                    <div class="product-body">
+                        <h3 class="product-title">Aloe Vera</h3>
+                        <div class="product-meta"><span class="muted">Arabian Peninsula</span><span
+                                class="product-price">€15</span></div>
+                        <div class="product-actions"><button class="btn-buy">Buy</button><button
+                                class="btn-details">Details</button></div>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-media"><img src="./imgs/pexels-fabian-stroobants-1098700-2123482.jpg"
+                            alt="Snake Plant"></div>
+                    <div class="product-body">
+                        <h3 class="product-title">Snake Plant</h3>
+                        <div class="product-meta"><span class="muted">Africa</span><span
+                                class="product-price">€20</span></div>
+                        <div class="product-actions"><button class="btn-buy">Buy</button><button
+                                class="btn-details">Details</button></div>
+                    </div>
+                </article>
+                <article class="product-card">
+                    <div class="product-media"><img src="./imgs/pexels-pixabay-207518.jpg" alt="Lavender"></div>
+                    <div class="product-body">
+                        <h3 class="product-title">Lavender</h3>
+                        <div class="product-meta"><span class="muted">Mediterranean</span><span
+                                class="product-price">€12</span></div>
+                        <div class="product-actions"><button class="btn-buy">Buy</button><button
+                                class="btn-details">Details</button></div>
+                    </div>
+                </article>
+            </div>
+
+            <section class="assignment-table py-2">
+                <h3>Plant-list</h3>
+                <div class="table-responsive">
+                    <table class="styled-table">
+                        <caption>Plant overview</caption>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Origin</th>
+                                <th>Price</th>
+                                <th>Availability</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Monstera Deliciosa</td>
+                                <td>South America</td>
+                                <td>€25</td>
+                                <td>In stock</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Aloe Vera</td>
+                                <td>Arabian Peninsula</td>
+                                <td>€15</td>
+                                <td>Low stock</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Snake Plant</td>
+                                <td>Africa</td>
+                                <td>€20</td>
+                                <td>In stock</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Lavender</td>
+                                <td>Mediterranean</td>
+                                <td>€12</td>
+                                <td>Out of stock</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+        <br>
+        <section class="py-2">
+            <h2>About Us</h2>
+            <p>
+                PlantStore was founded with a simple mission: to make plant care accessible
+                and enjoyable for everyone. We believe that every home and office deserves
+                a touch of green. Our team carefully selects and grows plants that thrive
+                in different living conditions.
+            </p>
+            <p>
+                From small succulents to tall indoor trees, we offer plants for beginners
+                and experts alike. Sustainability and love for nature guide everything we do.
+            </p>
+        </section>
+        <br>
+        <section class="py-2">
+            <h2>Plant Care Tips</h2>
+            <p>
+                Taking care of your plants is easier than you might think. The key factors are
+                water, light, and soil. Always check the soil moisture before watering, and
+                avoid overwatering, as it is the most common cause of plant problems.
+            </p>
+            <p>
+                Make sure to place sun-loving plants near a window, while shade-loving plants
+                should be kept away from direct sunlight. Re-potting once a year ensures your
+                plant has enough space to grow.
+            </p>
+
+            <aside>
+                <h3>Did you know?</h3>
+                <ul>
+                    <li>The Monstera is also known as the "Swiss Cheese Plant".</li>
+                    <li>Lavender not only smells good but also keeps away mosquitoes.</li>
+                    <li>Cacti can store water for months and survive in deserts.</li>
+                </ul>
+            </aside>
+        </section>
+        <br>
+        <section class="contact-us py-2">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Have a question or feedback? We'd love to hear from you!</p>
+
+                <form class="contact-form" action="#" method="POST">
+                    <div class="form-group input-container">
+                        <input type="text" id="name" name="name" class="input-field" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="form-group input-container">
+                        <input type="email" id="email" name="email" class="input-field" placeholder="Your Email"
+                            required>
+                    </div>
+
+                    <div class="form-group input-container">
+                        <textarea id="message" name="message" class="textarea-field" rows="5" placeholder="Your Message"
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <br>
+
+    <footer class="bg py-2">
+        <div class="container grid grid-cols-3 gap-4">
+
+            <!-- Column 1: Opening Hours -->
+            <div>
+                <h3>Opening Hours</h3>
+                <table>
+                    <caption class="sr-only">Store Opening Hours</caption>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Hours</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monday – Friday</td>
+                            <td>09:00 – 18:00</td>
+                        </tr>
+                        <tr>
+                            <td>Saturday</td>
+                            <td>10:00 – 16:00</td>
+                        </tr>
+                        <tr>
+                            <td>Sunday</td>
+                            <td>Closed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Column 2: Contact -->
+            <div>
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:info@plantstore.com">info@plantstore.com</a></p>
+                <p>Phone: +43 123 456 789</p>
+                <p>Address: Green Street 12, Vienna, Austria</p>
+            </div>
+
+            <!-- Column 3: Social Media -->
+            <div>
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Pinterest</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="container text-center mt-4">
+            <p>&copy; 2025 PlantStore. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

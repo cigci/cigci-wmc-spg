@@ -1,0 +1,79 @@
+/* Reset + sensible defaults */
+* { box-sizing: border-box; }
+html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { margin: 0; padding: 0; background-color: var(--surface); color: var(--text-secondary); line-height: 1.45; }
+
+.bg { background-color: var(--background); }
+
+.container { width: min(100% - 2rem, 1200px); margin: 0 auto; }
+.w-100 { width: 100%; }
+
+/* spacing helpers (vertical) */
+.py-2 { padding: calc(4 * 0.25rem) 0; }
+.pb-2 { padding-bottom: calc(4 * 0.25rem); }
+.py-4 { padding: calc(6 * 0.25rem) 0; }
+
+/* Flex helpers */
+.flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.items-center { align-items: center; }
+.cursor-pointer { cursor: pointer; }
+
+/* Buttons: consistent styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+
+
+
+/* Is made by A.I */
+
+.sr-only { /* keep utility in global in case used elsewhere */
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.btn-primary { background: var(--primary); color: var(--text-primary); }
+.btn-primary:hover { background: var(--primary-700); }
+.btn-primary:focus-visible { outline: 3px solid rgba(76,175,80,0.18); }
+
+/* Header / nav tweaks */
+header .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+header h1 { margin: 0; color: var(--text-primary); font-size: 1.25rem; }
+header img { width: 28px; height: 28px; }
+
+/* Responsive nav */
+@media (max-width: 720px) {
+  header .container { flex-direction: column; align-items: stretch; gap: 0.75rem; }
+  header .input-container { width: 100%; }
+}
+
+/* Footer tweaks */
+footer { color: var(--text-secondary); }
+footer { color: var(--text-secondary); background: linear-gradient(180deg, rgba(0,0,0,0.03), transparent); padding-top: 1rem; padding-bottom: 1rem; }
+footer a { color: var(--text-primary); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+@media (max-width: 720px) {
+  footer .grid { grid-template-columns: 1fr; }
+}
+
+/* small utilities */
+.mt-4 { margin-top: 1rem; }
+.mb-4 { margin-bottom: 1rem; }

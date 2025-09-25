@@ -1,0 +1,68 @@
+/* A.I Generated + Some bug fixes by human (by me) */
+
+.contact-us {
+  background-color: var(--background);      
+  border-radius: 10px;
+  padding: 40px 20px;
+  margin-top: 40px;
+}
+
+.contact-us .section-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+  color: var(--primary);                  
+}
+
+.contact-us .section-subtitle {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--text-primary);          
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Button */
+.contact-form .btn-submit {
+  background-color: var(--primary);
+  color: var(--text-primary);
+  border: none;
+  padding: 12px 18px;
+  font-size: 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.18s ease, transform 0.08s ease;
+  align-self: center;
+}
+
+.contact-form .btn-submit:hover { background-color: var(--primary-700); transform: translateY(-1px); }
+.contact-form .btn-submit:active { transform: translateY(0); }
+.contact-form .btn-submit:focus-visible { outline: 3px solid rgba(76,175,80,0.14); }
+
+.textarea-field {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid var(--text-primary);  
+  border-radius: 10px;                    
+  font-size: 16px;
+  line-height: 1.4;
+  resize: vertical;                         
+  background: var(--background);           
+  color: var(--text-primary);               
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.textarea-field:focus {
+  border-color: var(--primary);
+}
+
+/* Ensure inputs inherit improved styles from input.css */
+.contact-form .input-field { background: transparent; color: var(--text-primary); }

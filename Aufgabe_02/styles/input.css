@@ -1,0 +1,98 @@
+/* A.I Generated + Some bug fixes by human (by me) */
+
+:root {
+  /* Layout & sizing */
+  --container-width: 100%;
+  --input-padding-vertical: 8px;
+  --input-padding-left: 12px;
+  --input-padding-right: 48px; /* should be >= icon width + button padding + 2*border */
+
+  /* Border */
+  --border-width: 2px;               
+  --border-color: var(--text-primary);
+  --border-radius: 999px;            
+
+  /* Icon / button */
+  --icon-size: 20px;
+  --icon-button-padding: 8px;        /* clickable area */
+  --icon-gap-right: 8px;             
+
+  /* Colors & focus */
+  --icon-color: #9ca3af;
+  --icon-hover-color: #6b7280;
+  --focus-ring-color: rgba(59,130,246,0.12);
+  --focus-border-color: var(--primary-500);
+
+  /* Typography */
+  --font-size: 16px;
+  --line-height: 1;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: var(--container-width);
+  box-sizing: border-box;
+}
+
+.input-field {
+  width: 100%;
+  box-sizing: border-box; 
+  padding: var(--input-padding-vertical) var(--input-padding-right) var(--input-padding-vertical) var(--input-padding-left);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  outline: none;
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  background: transparent;
+  transition: box-shadow .12s ease, border-color .12s ease;
+  color: var(--text-primary);
+
+}
+
+/* Focus states */
+.input-field:focus,
+.input-field:focus-visible {
+  border-color: var(--focus-border-color);
+  box-shadow: 0 0 0 calc(var(--border-width) + 2px) var(--focus-ring-color);
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  right: var(--icon-gap-right);
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--icon-button-padding);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--icon-color);
+  line-height: 0;
+}
+
+/* Hover/Focus states for icon */
+.input-icon:hover,
+.input-icon:focus {
+  color: var(--icon-hover-color);
+  outline: none;
+}
+
+/* SVG size */
+.icon-svg {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  display: block;
+}
+
+/* Utility: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .input-field,
+  .input-icon {
+    transition: none;
+  }
+}
+
