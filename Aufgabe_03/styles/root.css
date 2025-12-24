@@ -1,0 +1,25 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --mc-green: #5aa316;
+    --mc-brown: #795548;
+    --mc-dark: #313131;
+    --mc-border: #000000;
+    --font-main: 'VT323', monospace;
+}
+
+body {
+    background-color: #1e1e1e;
+    color: white;
+    font-family: var(--font-main);
+    font-size: 1.2rem;
+    
+    img, .pixel-bg {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
