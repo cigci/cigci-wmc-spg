@@ -1,0 +1,17 @@
+{
+  "name": "spg-graphtool_",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.4",
+    "@types/bun": "latest",
+    "tailwindcss": "^4.2.4"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "dev": "bunx @tailwindcss/cli -i ./style/input.css -o ./style/output.css --watch"
+  }
+}

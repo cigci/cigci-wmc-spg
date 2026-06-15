@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-bg-deep">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPG Graph Tool</title>
+
+    <link rel="stylesheet" href="/style/output.css">
+</head>
+
+<body class="font-[system-ui,sans-serif] bg-bg text-txt overflow-y-auto overflow-x-hidden">
+
+    <div class="app-shell sticky top-0 h-[100dvh] flex z-[100] bg-bg">
+
+        <aside class="sidebar w-16 shrink-0 flex flex-col items-center gap-0.5 py-[10px] bg-[color-mix(in_hsl,var(--color-bg),black_28%)] border-r border-border overflow-y-auto overflow-x-hidden [scrollbar-width:none] select-none z-10">
+
+            <div class="sidebar-brand text-[10px] font-bold tracking-[1.5px] text-txt-muted pt-[6px] pb-[10px]">SPG</div>
+
+            <div class="sidebar-divider w-7 h-px bg-border my-1 mx-auto shrink-0"></div>
+
+            <nav class="sidebar-tools flex flex-col gap-0.5 w-full px-[5px]">
+                <button class="tool-btn flex flex-col items-center justify-center gap-[3px] w-full min-h-[52px] py-2 px-1 border-none rounded-[7px] bg-transparent text-txt text-[9px] font-medium tracking-[0.3px] cursor-pointer opacity-55 transition-[background,opacity] duration-[120ms] active" data-tool="select">
+                    <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M2 1l11 6-5 1.5L6 14z" />
+                    </svg>
+                    <span>Select</span>
+                </button>
+
+                <button class="tool-btn flex flex-col items-center justify-center gap-[3px] w-full min-h-[52px] py-2 px-1 border-none rounded-[7px] bg-transparent text-txt text-[9px] font-medium tracking-[0.3px] cursor-pointer opacity-55 transition-[background,opacity] duration-[120ms]" data-tool="node">
+                    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="8" cy="8" r="6" />
+                    </svg>
+                    <span>Node</span>
+                </button>
+
+                <button class="tool-btn flex flex-col items-center justify-center gap-[3px] w-full min-h-[52px] py-2 px-1 border-none rounded-[7px] bg-transparent text-txt text-[9px] font-medium tracking-[0.3px] cursor-pointer opacity-55 transition-[background,opacity] duration-[120ms]" data-tool="move">
+                    <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1l2 3H9v3h3V6l3 2-3 2V9h-3v3h1l-2 3-2-3h1V9H5v1L2 8l3-2v1h3V4H7L8 1z" />
+                    </svg>
+                    <span>Move</span>
+                </button>
+
+                <button class="tool-btn flex flex-col items-center justify-center gap-[3px] w-full min-h-[52px] py-2 px-1 border-none rounded-[7px] bg-transparent text-txt text-[9px] font-medium tracking-[0.3px] cursor-pointer opacity-55 transition-[background,opacity] duration-[120ms]" data-tool="edge">
+                    <svg width="18" height="18" viewBox="0 0 16 16" stroke="currentColor" stroke-width="2">
+                        <circle cx="3" cy="13" r="2" fill="currentColor" />
+                        <circle cx="13" cy="3" r="2" fill="currentColor" />
+                        <line x1="3" y1="13" x2="13" y2="3" />
+                    </svg>
+                    <span>Edge</span>
+                </button>
+
+                <div class="sidebar-divider w-7 h-px bg-border my-1 mx-auto shrink-0"></div>
+
+                <button class="tool-btn danger flex flex-col items-center justify-center gap-[3px] w-full min-h-[52px] py-2 px-1 border-none rounded-[7px] bg-transparent text-txt text-[9px] font-medium tracking-[0.3px] cursor-pointer opacity-55 transition-[background,opacity] duration-[120ms]" data-tool="delete">
+                    <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M6 2h4v1h3v1H3V3h3V2zM4 5h8l-.8 9H4.8L4 5zm2.5 1.5v6h1v-6h-1zm3 0v6h1v-6h-1z" />
+                    </svg>
+                    <span>Delete</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-spacer flex-1"></div>
+
+            <div class="sidebar-actions flex flex-col gap-0.5 w-full px-[5px]">
+                <button class="tool-btn flex flex-col items-center justify-center gap-[3px] w-full min-h-[52px] py-2 px-1 border-none rounded-[7px] bg-transparent text-txt text-[9px] font-medium tracking-[0.3px] cursor-pointer opacity-55 transition-[background,opacity] duration-[120ms]" id="btn-layout">
+                    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="8" cy="3"  r="1.8"/>
+                        <circle cx="3" cy="13" r="1.8"/>
+                        <circle cx="13" cy="13" r="1.8"/>
+                        <line x1="8" y1="4.8" x2="3"  y2="11.2"/>
+                        <line x1="8" y1="4.8" x2="13" y2="11.2"/>
+                        <line x1="4.8" y1="13" x2="11.2" y2="13"/>
+                    </svg>
+                    <span>Layout</span>
+                </button>
+
+                <button class="tool-btn flex flex-col items-center justify-center gap-[3px] w-full min-h-[52px] py-2 px-1 border-none rounded-[7px] bg-transparent text-txt text-[9px] font-medium tracking-[0.3px] cursor-pointer opacity-55 transition-[background,opacity] duration-[120ms]" id="btn-random">
+                    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 5h2.5l2 2-2 2H2"/>
+                        <path d="M14 5h-2.5l-2 2 2 2H14"/>
+                        <path d="M14 5l-1-1M14 5l-1 1"/>
+                        <path d="M2 9l1 1M2 9l1-1"/>
+                    </svg>
+                    <span>Random</span>
+                </button>
+
+                <button class="tool-btn danger flex flex-col items-center justify-center gap-[3px] w-full min-h-[52px] py-2 px-1 border-none rounded-[7px] bg-transparent text-txt text-[9px] font-medium tracking-[0.3px] cursor-pointer opacity-55 transition-[background,opacity] duration-[120ms]" id="btn-clear">
+                    <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="3" y1="3" x2="13" y2="13" />
+                        <line x1="13" y1="3" x2="3" y2="13" />
+                    </svg>
+                    <span>Clear</span>
+                </button>
+
+                <button class="tool-btn flex flex-col items-center justify-center gap-[3px] w-full min-h-[52px] py-2 px-1 border-none rounded-[7px] bg-transparent text-txt text-[9px] font-medium tracking-[0.3px] cursor-pointer opacity-55 transition-[background,opacity] duration-[120ms]" id="btn-load">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3v12" />
+                        <path d="m17 8-5-5-5 5" />
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    </svg>
+                    <span>Load</span>
+                </button>
+
+                <button class="tool-btn flex flex-col items-center justify-center gap-[3px] w-full min-h-[52px] py-2 px-1 border-none rounded-[7px] bg-transparent text-txt text-[9px] font-medium tracking-[0.3px] cursor-pointer opacity-55 transition-[background,opacity] duration-[120ms]" id="btn-save">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 15V3" />
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <path d="m7 10 5 5 5-5" />
+                    </svg>
+                    <span>Save</span>
+                </button>
+
+                <button class="tool-btn flex flex-col items-center justify-center gap-[3px] w-full min-h-[52px] py-2 px-1 border-none rounded-[7px] bg-transparent text-txt text-[9px] font-medium tracking-[0.3px] cursor-pointer opacity-55 transition-[background,opacity] duration-[120ms]" id="btn-fullscreen">
+                    <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M1 1h4v1.5H2.5V4H1V1zm10 0h4v3h-1.5V2.5H11V1zM1 12h1.5v1.5H4V15H1v-3zm10.5 1.5V12H13v3h-3v-1.5h1.5z" />
+                    </svg>
+                    <span>Full</span>
+                </button>
+
+                <div class="autosave-item flex flex-col items-center justify-center gap-[5px] min-h-[52px] py-2 px-1 w-full" title="Speichert den Graphen automatisch im Browser (localStorage)">
+                    <label class="toggle-switch relative inline-block w-[30px] h-[17px] cursor-pointer" for="toggle-autosave">
+                        <input type="checkbox" id="toggle-autosave" class="opacity-0 w-0 h-0 absolute">
+                        <span class="toggle-knob absolute inset-0 bg-border rounded-[17px] transition-colors duration-[180ms]"></span>
+                    </label>
+                    <span class="autosave-label text-[9px] font-medium tracking-[0.3px] text-txt opacity-55 transition-opacity duration-[120ms]">
+                        <svg width="9" height="9" viewBox="0 0 16 16" fill="currentColor" style="display:block;margin:0 auto 1px;">
+                            <rect x="2" y="2" width="12" height="10" rx="1"/>
+                            <rect x="5" y="9" width="6" height="4" rx="0.5" fill="var(--color-bg-deep)"/>
+                        </svg>
+                        Local
+                    </span>
+                </div>
+
+                <div class="autosave-item flex flex-col items-center justify-center gap-[5px] min-h-[52px] py-2 px-1 w-full">
+                    <label class="toggle-switch relative inline-block w-[30px] h-[17px] cursor-pointer" for="toggle-analyse">
+                        <input type="checkbox" id="toggle-analyse" class="opacity-0 w-0 h-0 absolute">
+                        <span class="toggle-knob absolute inset-0 bg-border rounded-[17px] transition-colors duration-[180ms]"></span>
+                    </label>
+                    <span class="autosave-label text-[9px] font-medium tracking-[0.3px] text-txt opacity-55 transition-opacity duration-[120ms]">Analyse</span>
+                </div>
+            </div>
+
+        </aside>
+
+        <main class="canvas-wrapper relative flex-1 flex items-center justify-center overflow-hidden p-[14px]">
+            <canvas class="canvas-main touch-none rounded-lg aspect-video max-w-full max-h-full w-full block"></canvas>
+
+            <div id="analyse-legend" class="analyse-legend hidden absolute bottom-7 left-5 bg-bg-card border border-border rounded-[10px] py-[10px] px-[14px] z-[150] shadow-[0_4px_20px_rgba(0,0,0,0.4)]">
+                <div class="flex items-center gap-2 text-[11px] text-txt-muted">
+                    <span class="inline-block w-3 h-3 rounded-full shrink-0" style="background:#f59e0b;"></span>
+                    <span>Artikulation</span>
+                </div>
+                <div class="flex items-center gap-2 text-[11px] text-txt-muted">
+                    <span class="inline-block w-3 h-3 rounded-full shrink-0" style="background:#22c55e;"></span>
+                    <span>Zentrum</span>
+                </div>
+                <div class="flex items-center gap-2 text-[11px] text-txt-muted">
+                    <span class="inline-block w-[18px] h-[3px] rounded-sm shrink-0" style="background:#ef4444;"></span>
+                    <span>Brücke</span>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <section id="results-section" class="absolute bg-bg-deep pb-[60px] min-h-[100px]"></section>
+
+
+    <div id="loading-overlay" class="loading-overlay hidden fixed inset-0 bg-black/45 z-[400] items-center justify-center backdrop-blur-[2px]">
+        <div class="bg-bg-card border border-border rounded-xl py-6 px-7 min-w-[260px] flex flex-col items-center gap-3 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <span class="text-xs font-semibold tracking-[0.5px] text-txt-muted uppercase" id="loading-label">Wird berechnet…</span>
+            <div class="relative w-full h-[6px] bg-bg-card2 rounded-[6px] overflow-hidden">
+                <div class="loading-fill h-full w-0 bg-secondary rounded-[6px] transition-[width] duration-[50ms] ease-linear" id="loading-fill"></div>
+            </div>
+            <span class="text-[20px] font-extrabold text-txt leading-none" id="loading-pct">0%</span>
+        </div>
+    </div>
+
+    <div id="random-modal" class="modal-overlay hidden fixed inset-0 bg-black/55 z-[300] items-center justify-center backdrop-blur-[3px]">
+        <div class="bg-bg-card border border-border rounded-[14px] py-7 px-6 w-80 flex flex-col gap-5 shadow-[0_24px_60px_rgba(0,0,0,0.5)]">
+            <h3 class="text-[13px] font-bold tracking-[1.5px] uppercase text-txt-muted">Zufälliger Graph</h3>
+            <form id="random-form" class="flex flex-col gap-[10px]">
+
+                <div class="flex gap-2">
+                    <button type="button" class="modal-preset flex-1 py-[7px] border border-border rounded-lg bg-transparent text-txt-muted text-[11px] font-bold tracking-[0.8px] uppercase cursor-pointer active" id="rnd-preset-default">Normal</button>
+                    <button type="button" class="modal-preset flex-1 py-[7px] border border-border rounded-lg bg-transparent text-txt-muted text-[11px] font-bold tracking-[0.8px] uppercase cursor-pointer"        id="rnd-preset-crazy">Crazy</button>
+                </div>
+
+                <div class="flex flex-col gap-[10px]">
+                    <div class="flex items-center justify-between">
+                        <label class="text-[11px] font-semibold tracking-[0.5px] text-txt-muted uppercase" for="rnd-nodes">Knoten</label>
+                        <input type="number" id="rnd-nodes-num" min="2" value="12" class="modal-num w-[68px] bg-bg-card2 border border-border rounded text-txt text-sm font-bold py-1 px-2 text-center">
+                    </div>
+                    <input type="range" id="rnd-nodes" min="2" value="12" class="w-full accent-secondary cursor-pointer">
+                </div>
+
+                <div class="flex flex-col gap-[10px]">
+                    <div class="flex items-center justify-between">
+                        <label class="text-[11px] font-semibold tracking-[0.5px] text-txt-muted uppercase" for="rnd-density">Kantendichte</label>
+                        <span class="text-[15px] font-bold text-txt min-w-[40px] text-right" id="rnd-density-val">30%</span>
+                    </div>
+                    <input type="range" id="rnd-density" min="0" max="100" value="30" class="w-full accent-secondary cursor-pointer">
+                </div>
+
+                <div class="flex flex-row items-center justify-between gap-[10px]">
+                    <label class="text-[11px] font-semibold tracking-[0.5px] text-txt-muted uppercase" for="rnd-connected">Zusammenhängend</label>
+                    <label class="toggle-switch relative inline-block w-[30px] h-[17px] cursor-pointer">
+                        <input type="checkbox" id="rnd-connected" checked class="opacity-0 w-0 h-0 absolute">
+                        <span class="toggle-knob absolute inset-0 bg-border rounded-[17px] transition-colors duration-[180ms]"></span>
+                    </label>
+                </div>
+
+                <div class="flex gap-2 justify-end pt-1">
+                    <button type="button" id="random-cancel" class="py-2 px-[18px] rounded-lg text-xs font-semibold cursor-pointer transition-opacity duration-[120ms] bg-transparent border border-border text-txt-muted">Abbrechen</button>
+                    <button type="submit"                    class="py-2 px-[18px] rounded-lg text-xs font-semibold cursor-pointer transition-opacity duration-[120ms] bg-secondary text-white border-none">Generieren</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="/script/app.js"></script>
+</body>
+
+</html>
